@@ -1,0 +1,33 @@
+<ion-view view-title="修改密码" cache-view="false">
+  <ion-content class="account-con">
+    <ul class="main-input repassword repassword1">
+      <li class="cf">
+
+      </li>
+      <li class="cf">
+        <span></span>
+        <div>
+          <input type="password" placeholder="请输入原始密码" ng-model="oldpassword"/>
+        </div>
+      </li>
+
+      <li class="cf">
+        <span></span>
+        <div>
+          <input type="password" placeholder="请输入新密码" ng-model="newpassword"/>
+        </div>
+      </li>
+      <li  class="cf">
+        <span></span>
+        <div>
+          <input type="password" placeholder="请再次确认新密码" ng-model="conpassword"/>
+        </div>
+      </li>
+
+      <li class="cf" ng-show="reg_error">
+        <div>{{error_msg}}</div>
+      </li>
+    </ul>
+    <a class="btn_login btn-green " ng-click="update(oldpassword, newpassword, conpassword)">提交</a>
+  </ion-content>
+</ion-view>

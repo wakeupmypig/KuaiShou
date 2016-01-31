@@ -1,0 +1,22 @@
+<ion-view view-title="其他" cache-view="false">
+
+
+
+  <ion-content class="account-con">
+    <div class="content">
+      <ul>
+        <li class="cf"><label >类型</label>
+          <div><input type="tel" ng-model="brand" /></div>
+        </li>
+        <li class="cf"><label for="">数量</label>
+          <div><input type="tel" ng-model="num" /></div>
+        </li>
+        <li><label for="">描述</label></li>
+        <li><label for=""></label>
+        <div><textarea placeholder="成色、进水情况、开关机情况、维修情况等" ng-model="desc" ></textarea></div>
+        </li>
+      </ul>
+      <a  class="submut btn-green" ng-click="otherProduct(brand,num,desc)">交易</a>
+    </div>
+  </ion-content>
+</ion-view>

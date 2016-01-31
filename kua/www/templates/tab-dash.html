@@ -1,0 +1,37 @@
+<ion-view view-title="首页" hide-back-button="true">
+  <ion-content class="dash-con">
+    <div style="height: 180px;">
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" ng-if="banners" slide-interval=3000 does-continue="true">
+      <ion-slide ng-repeat="banner in banners">
+        <div class="box">
+          <a><img src={{homeurl+banner.path}}></a>
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+    </div>
+    <div class="navbar">
+      <div class="title"></div>
+      <div class="scroll">
+        <span>资讯</span>
+
+        <div class="scroll-bar-news">
+          <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" show-pager="false"
+                         slide-interval=3500 does-continue="true"  ng-if = 'objs'>
+            <ion-slide  ng-repeat="obj in objs">
+              <!--ng-click="goMessageInfo(obj.id)"-->
+              <div><a>{{obj.title}}</a></div>
+            </ion-slide>
+          </ion-slide-box>
+        </div>
+      </div>
+    </div>
+    <ul class="box-list">
+      <li><a href="#/search">搜索</a></li>
+      <li><a href="#/classify">分类</a></li>
+      <li><a href="#/coding">二手市场</a></li>
+      <li><a href="#/coding">物流</a></li>
+      <li><a href="#/quick">快速入口</a></li>
+      <li><a href="">更多</a></li>
+    </ul>
+  </ion-content>
+</ion-view>

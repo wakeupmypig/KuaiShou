@@ -1,0 +1,14 @@
+<ion-view view-title="信息" hide-back-button="false">
+  <ion-content class="info-con">
+    <div class="list">
+      <ul>
+        <li ng-repeat="info in infos">
+          <a class="item item-icon-left" ng-click="goMessageInfo(info.id)">
+            <i class="icon ion-email" style="color:#78CB3F"></i>
+            {{info.title}}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </ion-content>
+</ion-view>

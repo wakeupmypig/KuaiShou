@@ -1,0 +1,32 @@
+<ion-view view-title="快速入口" cache-view="false">
+
+
+
+  <ion-content class="account-con">
+  <nav class="sub-nav" sub>
+    <a href="">家电</a><a href="">电脑</a><a href="" class="active">手机</a><a href="#/productOther">其他</a>
+  </nav>
+    <div class="content">
+      <ul>
+        <li class="cf"><label >品牌</label>
+          <div>
+            <select ng-model="sel">
+              <option value="">请选择</option>
+              <option ng-repeat="item in list" value={{item.id}}>{{item.title}}</option>
+            </select>
+
+          </div>
+        </li>
+
+        <!--<li class="cf"><label for="">数量</label>-->
+          <!--<div><input type="tel" /></div>-->
+        <!--</li>-->
+        <!--<li><label for="">描述</label></li>-->
+        <!--<li><label for=""></label>-->
+          <!--<div><textarea placeholder="成色、进水情况、开关机情况、维修情况等" ></textarea></div>-->
+        <!--</li>-->
+      </ul>
+      <a ng-click="ckInfo(sel)" class="submut btn-green" href="#/product/{{sel}}">交易</a>
+    </div>
+  </ion-content>
+</ion-view>

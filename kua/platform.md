@@ -1,0 +1,58 @@
+# **Ionic（Cordova）开发环境搭建文档** #
+
+---
+
+### **目录** ###
+1. Android篇
+  (1)配置JAVA
+  (2)配置Android
+  (3)安装Cordova和Ionic
+
+2. IOS篇（后续）
+  (1)...
+  (2)...
+
+---
+
+### **1. Android篇** ###
+
+#### **必备工具** ####
+
+ 1. JAVA JDK 版本7以上 (**64位系统建议安装64位版本**） [下载地址][1]
+ 2. Android SDK 安装最新版 [下载地址][2]
+ 3. NodeJS v4.2.2 [下载地址][3]
+ 4. Cordova, Ionic [安装方法][4]
+
+(1)配置JAVA
+安装完**JAVA JDK**后配置环境变量，在系统的环境变量里添加JAVA_HOME变量，值为JAVA SDK的安装位置，如下： 
+
+>JAVA_HOME C:\Program Files\Java\jdk1.8.0_60
+
+(2)安装Android SDK
+下载SDK的安装包（见必备工具）。安装完成后检查Path里是否已经添加了Android ADB tools的路径
+
+(3)安装NodeJS
+正常安装，没有什么特殊的地方。
+安装完成后在CMD里运行“npm -v”命令检查是否安装成功。
+
+(4)安装Cordova，Ionic
+启动CMD，输入：
+
+> npm install -g cordova ionic
+
+静候安装成功。如果安装的时候出现错误提示，可能是GFW的问题，需要翻墙，或添加NPM的国内镜像[CNPM][5]再次进行安装，直至成功。
+CNPM的安装方法见http://cnpmjs.org/。
+安装完成后，进入CMD，运行 ionic 命令检查安装是否成功，如果显示ionic的相关帮助信息就表示安装成功了。
+  
+a.在任意位置运行命令，建立工程：ionic start kuaishou tabs
+b.进入kuaishou目录，用我给你的www.rar里的文件覆盖www里的所有文件。
+c.运行 npm install 安装相关程序
+d.运行 ionic state restore 恢复项目
+e.然后再运行 ionic platform add android 添加android平台。
+f.使用 ionic build android 检查项目是否编译成功
+
+  [1]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+  [2]: http://developer.android.com/intl/zh-cn/sdk/index.html#Other
+  [3]: http://nodejs.org/
+  [4]: http://ionicframework.com/getting-started/
+  [5]: http://cnpmjs.org/

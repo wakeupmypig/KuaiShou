@@ -1,0 +1,34 @@
+<ion-view view-title="物品详情" cache-view=false>
+    <ion-content class="product">
+        <div class="product-box">
+            <img ng-src="{{homeurl+lists.image}}">
+
+            <div class="product-title">
+                <h4>{{lists.title}}</h4>
+
+                <p>品牌:{{lists.brand}} <span></span>&nbsp;&nbsp;上市事件 <span>{{lists.saletime}}</span></p>
+
+                <p>屏幕模式: <span>{{lists.screen}}</span></p>
+
+                <p>操作系统：{{lists.mobile_os}}</p>
+            </div>
+            <div class="direct">评估描述</div>
+            <ul class="pro-info" ng-repeat="item in lists.option "  ng-if="chooseNum">
+                <li class="cf" >
+                  <div ng-show="false" ng-bind="mark = $index"></div>
+                    <h5>{{item.title}}</h5>
+
+                    <div>
+                        <a ng-repeat="itemA in item._child"
+                           ng-class='{"pro-btn1":item._child.length%2>0,"pro-btn2":item._child.length%2==0,"btn-gray":true,"btn-green":itemA.title==chooseNum[mark].title,}'
+                           choose _id="{{itemA.id}}">{{itemA.title}}</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="foot">
+                <a ng-click="foundPrice()" class="reset">确定</a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+

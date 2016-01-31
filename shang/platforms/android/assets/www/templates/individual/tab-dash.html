@@ -1,0 +1,19 @@
+<ion-view view-title="首页" hide-back-button="true">
+  <ion-content class="dash-con">
+    <div style="height: 180px;">
+    <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" ng-if="banners" slide-interval=3000 does-continue="true">
+      <ion-slide ng-repeat="banner in banners">
+        <div class="box">
+          <a><img src={{homeurl+banner.path}}></a>
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+    </div>
+    <ul class="bussiness-indexinfo">
+      <li class="clearfix"><a href="#/transaction">大宗交易<span class="indexinfo-icon1 individual-block"></span> <span>&gt;</span></a></li>
+      <!--href="#/userorder/working"-->
+      <li class="clearfix"><a ng-click="goOrder()">订单详情<span class="indexinfo-icon2"></span> <span>&gt;</span></a></li>
+      <li class="clearfix"><a href="#/info">资讯<span class="indexinfo-icon3"></span> <span>&gt;</span></a></li>
+    </ul>
+  </ion-content>
+</ion-view>

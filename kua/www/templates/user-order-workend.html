@@ -1,0 +1,136 @@
+<ion-view view-title="已完结" cache-view='false' hide-back-button="false">
+  <ion-nav-buttons side="left">
+    <!--<span class="back-text" ng-click="backProduct()">-->
+    <!--<i class="icon ion-ios-arrow-thin-left"></i>-->
+    <!--</span>-->
+  </ion-nav-buttons>
+  <ion-tabs class="tabs-top tabs-color-active-positive">
+    <ion-tab title="进行中" href="#/userorder/working">
+      <ion-nav-view name="to-working">
+      </ion-nav-view>
+    </ion-tab>
+    <ion-tab title="已完结" href="#/userorder/workend">
+      <ion-nav-view name="to-working">
+          <ion-content style="margin-bottom: 50px">
+            <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+            <ul class="product-list order-info" ng-repeat="order in orders">
+              <li  class="working" ng-show="order.order_status>2">
+                <div class="working-title">
+                  订单号:{{order.sn}}　
+                  <em ng-class="{'user-cancel':order.order_status==3?true:false,'buss-cancel':order.order_status==4?true:false,'deal-success':order.order_status==6?true:false}">
+                    {{order.order_status==3?'用户取消':''}}
+                    {{order.order_status==4?'商户取消':''}}
+                    {{order.order_status==6?'交易成功':''}}
+                  </em>
+                  <span>
+                    {{order.createtime*1000 | date:'yyyy-MM-dd'}}
+                  </span>
+                </div>
+                <div class="working-content" ng-repeat="p in order.product">
+                  <img src="{{homeurl+p.image}}">
+                  <p class="tit">{{p.title}}</p>
+                  <a class="working-look" href="#/orderProductInfo/{{p.id}}/{{order.id}}">查看详情>></a>
+                  <a class="working-price">{{p.price |currency:"￥"}}</a>
+                </div>
+                <div class="working-foot">
+                  <span>共计: <strong style="color:red">{{order.amount | currency:"￥"}}</strong></span>
+                  <!--2015-12-22 add delete button -->
+                  <a class="btn-green" ng-click="delFinOrder(order.id)">删除</a>
+
+                  <a class="btn-green working-refuse" style="width: 70px" ng-hide="order.order_status>=2"  ng-click="showConfirm(order.id)">取消订单</a>
+
+                  <span  style="width: 70px" ng-show="(order.qd_uid>0)&&(order.order_status==1)">已被抢单</span>
+                  <a class="btn-green working-refuse" ng-show="(order.qd_uid>0)&&(order.order_status==2)" ng-click="showConfirm(order.id)">拒绝</a>
+                  <a class="btn-green working-agree" ng-show="(order.qd_uid>0)&&(order.order_status==2)">同意</a>
+                </div>
+              </li>
+            </ul>
+            <style>
+              .working{
+                width: 90%;
+                margin: 10px auto;
+                color: #8f8f8f;
+                border: 1px solid gainsboro;
+              }
+              .working .working-title{
+                border-bottom: 1px solid gainsboro;
+                padding: 10px 2%;
+              }
+              .working .working-title span{
+                color: red;
+                float: right;
+
+              }
+              .working img{
+                width: 50px;height: 50px;
+                position: absolute;
+                top: 10px; left: 0;
+              }
+              .working-content{
+                position: relative;
+                width: 95%;
+                border-bottom: 1px solid gainsboro;
+                margin: 0 auto;
+                height: 80px;
+              }
+              .working .tit{
+                padding-top:10px;
+                margin:0px 0 0 60px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+              .working-look{
+                position: absolute;
+                color: gray;
+                bottom: 5px;right: 10px;;
+                text-align: right;
+                display: block;
+              }
+              .working-foot{
+                padding: 5px 0;
+                width: 95%;
+                margin: 0 auto;
+              }
+              .working-foot .btn-green{
+                display: inline-block;
+                width: 50px;
+                font-size: 13px;
+                margin-right: 5px;;
+                float: right;
+                border: 1px solid #78CB3F;
+              }
+              .working-foot .working-refuse{
+                background: none;
+                border: 1px solid gainsboro;
+                color: gray;
+              }
+              .user-cancel,.buss-cancel{
+                display: inline-block;
+                width: 20%;
+                height: 16px;
+                font-size: 12px;
+                color: #fafafa;
+                background-color: red;
+                border-radius: 4px;
+                line-height: 16px;
+                text-align: center;
+              }
+              .deal-success{
+                display: inline-block;
+                width: 20%;
+                height: 16px;
+                font-size: 12px;
+                color: #fafafa;
+                background-color: #78CB3F;
+                border-radius: 4px;
+                line-height: 16px;
+                text-align: center;
+              }
+            </style>
+          </ion-content>
+      </ion-nav-view>
+    </ion-tab>
+
+  </ion-tabs>
+</ion-view>

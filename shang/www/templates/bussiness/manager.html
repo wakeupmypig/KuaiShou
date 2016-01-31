@@ -1,0 +1,25 @@
+<ion-view view-title="散户管理" hide-back-button="false" cache-view="false">
+  <ion-content class="dash-con">
+    <ul class="bussiness-managestatus" ng-if="userList">
+      <li ng-repeat="user in userList">
+        <span></span>
+        <span>{{user.username}}</span>
+        <span>{{$index+1}}</span>
+        <a href="#/userorder/workingC/{{user.id}}"></a>
+        <span ng-click="removeUser(user.id)"></span>
+        <div ng-hide="true">{{user.show_order_status = user.show_order_status==1?true:false}}</div>
+
+        <label class="toggle toggle-balanced" style="float: right;  top:10px;right: 0; position: absolute;">
+          <!--ng-change="changStatus(user.uid,user.status)"  {{data =user.status?checked="":"void(0)"}}-->
+
+          <input type="checkbox" ng-model="user.show_order_status" ng-change="changStatus(user.id,user.show_order_status)">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
+    </ul>
+    <a class="btn-green" style="width: 100px; line-height: 40px; margin: 20px auto" ng-click="showPopup()">添加散户</a>
+    </ion-toggle>
+  </ion-content>
+</ion-view>

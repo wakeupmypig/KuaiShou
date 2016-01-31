@@ -1,0 +1,49 @@
+<ion-view view-title="个人中心" hide-back-button=true cache-view="false">
+  <ion-content class="usercenter">
+    <div class="user">
+      <div class="avtar" style="background-clip: padding-box">
+        <input type="file"/>
+      </div>
+      <span class="user-name">{{username}}</span>
+
+
+      <ul class=" user-index">
+        <li>
+          <a href="#/userinfo">个人资料
+          <!--<a href="javascript:void(0);" ng-click="goInfo()">个人资料-->
+            <span class="user4"></span>
+            <span>&gt</span>
+          </a>
+        </li>
+        <li>
+          <!--<a href="#/userorder/working/141">订单管理-->
+          <a href="javascript:void(0);" ng-click="goOrder()">订单管理
+            <span class="user1"></span>
+            <span>&gt</span>
+          </a>
+        </li>
+        <li>
+          <a href="#/usercenter/balancemanage">账户管理
+            <span class="user2"></span>
+            <span>&gt</span>
+          </a>
+        </li>
+        <li>
+          <a href="#/usertrade/{{uid}}">大宗交易
+            <span class="user3"></span>
+            <span>&gt</span>
+          </a>
+        </li>
+        <li>
+          <a href="#/setup">设置
+            <span class="user5"></span>
+            <span>&gt</span>
+          </a>
+        </li>
+      </ul>
+
+      <a class="quite btn-green" ng-click="logout()">注销账户</a>
+
+    </div>
+  </ion-content>
+</ion-view>

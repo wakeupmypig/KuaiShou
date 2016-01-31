@@ -1,0 +1,30 @@
+<ion-view view-title="搜索" cache-view="false">
+
+
+
+    <ion-content class="search-box" ng-controller="SearchCtrl">
+
+        <div class="search">
+            <div class="searchbox">
+                <label class="item item-input">
+                    <span class="search-icon"></span>
+                    <input type="search" placeholder="搜索" ng-model-options="{debounce: 2000}" ng-model="searchText"
+                           ng-change="search()">
+                </label>
+            </div>
+        </div>
+
+        <ion-list>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="product in products"
+                      type="item-text-wrap" href="#/product/{{product.id}}">
+                <img ng-src="{{homeurl+product.image}}">
+
+                <h2>{{product.title}}</h2>
+
+                <p>估价：{{product.price}} 元</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

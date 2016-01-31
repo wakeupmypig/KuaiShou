@@ -1,0 +1,24 @@
+<ion-view view-title="抢单" cache-view=false>
+        <ion-content >
+          <ul class="product-list order-info" ng-repeat="order in orders" ng-show="orders.code!=0">
+            <li  class="working">
+              <div class="working-title">订单号:{{order.sn}}<span>{{order.createtime*1000 | date:'yyyy-MM-dd'}}</span></div>
+              <div class="working-content" ng-repeat="o in order.product">
+                <img src="{{homeurl+o.image}}">
+                <p class="tit">{{o.title}}</p>
+                <a class="working-look" href="#/orderProductInfoB/{{o.id}}/{{order.id}}">查看详情>></a>
+                <a class="working-price">{{o.price |currency:"￥"}}</a>
+
+              </div>
+              <div style="font-size: 12px; text-align: right; padding-right: 2.5%">
+                姓名：{{order.realname}} <br/>
+                地址：{{order.address}} <br/>电话：{{order.mobile}}
+              </div>
+              <div class="working-foot">
+                <span>共计: <strong style="color:red">{{order.amount | currency:"￥"}}</strong></span>
+                <a class="btn-green working-agree" ng-click="showConfirm(order.id)">抢单</a>
+              </div>
+            </li>
+          </ul>
+        </ion-content>
+</ion-view>

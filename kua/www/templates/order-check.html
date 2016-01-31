@@ -1,0 +1,14 @@
+<ion-view view-title="确认订单" cache-view=false>
+    <ion-content>
+        <p class="confirm-order-notify">请确认订单内容无误后提交！</p>
+        <ul class="downorder-info">
+            <li>取货地址：{{address}}</li>
+            <li>联 系 人：{{nickname}}</li>
+            <li>联系电话：{{mobile}}</li>
+            <li ng-repeat="title in titlename">商品名称：{{title}}</li>
+            <li>估 价：<span>{{price}}</span>元</li>
+        </ul>
+        <button class="order-checkconfirm" ng-click="goOrderSuccess()">确定</button>
+        <button class="order-checkcancel" ng-click="orderCancel()">取消</button>
+    </ion-content>
+</ion-view>

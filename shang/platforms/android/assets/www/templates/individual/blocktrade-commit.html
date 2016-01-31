@@ -1,0 +1,55 @@
+<ion-view view-title="大宗交易" cache-view="false">
+  <ion-content>
+    <ul class="bussiness-addindividaul" style="margin: 44px auto 0;">
+      <li>
+        <label for="">产品类型</label>
+        <select ng-change="change(optionVal)" class="block-type-select" ng-model="optionVal">
+          <option value="">请选择</option>
+          <option ng-repeat="item in proTypeList" value={{item.id}}>{{item.title}}</option>
+        </select>
+      </li>
+      <li>
+        <label for="">品牌</label>
+        <select ng-model="brand">
+         <option ng-repeat="items in listall track by $index" value={{items.title}}>{{items.title}}</option>
+        </select>
+      </li>
+      <li>
+        <label for="">规格</label>
+        <input type="text" ng-model="guige"/>
+      </li>
+      <li>
+        <label for="">数量</label>
+        <input type="text" ng-model="num"/>
+      </li>
+      <li>
+        <label for="">联系电话</label>
+        <input ng-pattern="/^1\d{10}$/" type="text" ng-model="name"/>
+      </li>
+      <li>
+        <label for="">出货地址</label>
+        <input type="text" ng-model="address"/>
+      </li>
+      <li>
+        <label for="">备注</label>
+        <textarea class="block-comment-textarea" ng-model="remark"></textarea>
+      </li>
+      <li class="error-comment" ng-show="reg_error">
+        <div>{{error_msg}}</div>
+      </li>
+    </ul>
+    <a ng-click="saveTrade(optionVal,brand,guige,num,name,address,remark)" class="btn-green" style="width: 30%;height: 44px;line-height: 44px;margin: 30px auto;">提交</a>
+  </ion-content>
+  <style>
+    .error-comment{
+      margin: 15px auto 0;
+      height: 30px;
+    }
+    .error-comment div{
+      color: red;
+      font-size: 12px;
+      line-height: 30px;
+    }
+  </style>
+</ion-view>
+

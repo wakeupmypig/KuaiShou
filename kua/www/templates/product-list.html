@@ -1,0 +1,22 @@
+<ion-view view-title="明细" cache-view=false>
+
+
+
+    <ion-content class="product-list">
+        <ion-list>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in lists"
+                      type="item-text-wrap" href="#/product/{{item.pid}}">
+                <img ng-src="{{homeurl+item.path}}">
+
+                <h2>{{item.title}}</h2>
+
+                <p>描述：{{item.description}} 元</p>
+
+                <p>估价：{{item.price}} 元</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+        </ion-list>
+      <ion-infinite-scroll ng-if="!vm.moredata" on-infinite="vm.loadMore()" distance="1%" ></ion-infinite-scroll>
+    </ion-content>
+
+</ion-view>

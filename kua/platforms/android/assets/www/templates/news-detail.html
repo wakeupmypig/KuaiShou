@@ -1,0 +1,20 @@
+<ion-view view-title="资讯详情">
+  <ion-content class="dash-con">
+    <h3 class="news-detail-h1">{{title}}</h3>
+    <div class="news-detail-content">
+      <span>{{create_time}}</span>
+      <!--<h2>白雪公主</h2>-->
+      <!--<img src="../images/news-detail.png" alt=""/>-->
+      <div ng-bind-html="content"> 　
+      </div>
+    </div>
+    <style>
+      .news-detail-h1{ font-size: 30px; line-height: 30px; padding: 3%}
+      .news-detail-content { padding: 0 3%}
+      .news-detail-content span{ margin:0 0  10px ; display: block; width: 100%; text-align: right; float: right; border-bottom: 1px dashed gray}
+      .news-detail-content p{
+        text-indent: 30px;;
+      }
+    </style>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,17 @@
+<ion-view view-title="品牌分类" cache-view="false">
+
+
+
+    <ion-content class="classify-type">
+        <div class="type-main">
+            <ul>
+                <li ng-repeat="type in types">
+                    <a href="#/productList/{{type.id}}">
+                      <img src="{{homeurl+'/'+type.brand_icon}}" alt=""/>
+                    </a>
+                  <span>{{type.title}}</span>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>

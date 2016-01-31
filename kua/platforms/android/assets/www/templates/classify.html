@@ -1,0 +1,17 @@
+<ion-view view-title="分类" cache-view="false">
+
+
+
+    <ion-content class="classify">
+        <div class="list">
+            <ul>
+                <li ng-repeat="c in cs">
+                    <a class="item item-icon-left" href="#/classify/type/{{c.id}}">
+                        <i class="icon iconfont icon-ic{{$index+1}}"></i>
+                        {{c.title}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>

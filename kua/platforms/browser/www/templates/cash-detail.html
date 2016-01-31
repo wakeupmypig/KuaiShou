@@ -1,0 +1,15 @@
+<ion-view view-title="提现" cache-view="false">
+
+
+
+  <ion-content>
+    <ul class="user-info balance-detail margin44 bussiness-bill" ng-if="list">
+      <!--1充值 2提现 3付款 4收款-->
+      <li style="padding: 0; text-align: center"  ng-repeat="o in list "><span >您于{{o.create_time*1000 | date:'yyyy-MM-dd hh:mm:ss'}}
+      {{o.type==1?'充值':''}}
+      {{o.type==2?'提现':''}}
+      {{o.type==3?'付款':''}}
+      {{o.type==4?'收款':''}} </span><span style="padding: 0">{{o.price|currency:'￥'}}</span></li>
+    </ul>
+  </ion-content>
+</ion-view>

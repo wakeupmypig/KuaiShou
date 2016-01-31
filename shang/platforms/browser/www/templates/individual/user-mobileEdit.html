@@ -1,0 +1,23 @@
+<ion-view view-title="修改手机号" cache-view=false>
+    <ion-content class="mobileEdit">
+        <!--<span ng-show="msgerror">{{msgerror}}</span>-->
+      <label class="item item-input" style="margin-top: 10px;">
+        <span class="input-label" style="width: 45%;">请输入新手机号:</span>
+        <input type="text" style="padding-right: 5%;color: #BABABA;" ng-model="mobile" ng-disabled="sendSms" ng-click="msgclear()">
+      </label>
+
+        <label class="item item-input" style="margin-top: 20px;" ng-show="sendSms">
+            <span class="input-label">请输入验证码</span>
+            <input type="text" ng-model="key" ng-click="msgclear()">
+        </label>
+        <a ng-click="sendKey(mobile)" class="btn-green" style="margin: 44px auto;border-radius: 4px;width: 50%;height: 44px;text-align: center;line-height: 44px;font-size: 18px;">发送验证码</a>
+        <!--<button class="button button-block button-positive" ng-hide="sendSms"-->
+                <!--style="margin: 20px auto; width: 40%;" ng-click="sendKey(mobile)">-->
+            <!--发送验证码-->
+        <!--</button>-->
+        <button class="button button-block button-balanced" ng-show="sendSms"
+                style="margin: 20px auto; width: 40%;" ng-click="mobileSave(mobile, key)">
+            保存
+        </button>
+    </ion-content>
+</ion-view>

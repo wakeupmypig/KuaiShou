@@ -1,0 +1,60 @@
+<ion-view view-title="进行中" cache-view='false' hide-back-button="false">
+  <!-- 根据传递参数消除返回按钮显示两次的问题 -->
+  <ion-nav-buttons side="left">
+    <span class="button back-button buttons  button-clear header-item" ng-click="goUserCenter() " ng-show="dbBack">
+    <i class="icon ion-ios-arrow-thin-left" ng-show="dbBack">个人中心</i>
+    </span>
+  </ion-nav-buttons>
+
+  <ion-tabs class="tabs-top tabs-color-active-positive">
+
+    <ion-tab title="进行中" href="#/userorder/working/{{userID}}">
+      <ion-nav-view name="to-working">
+        <ion-content style="margin-bottom: 50px">
+          <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+          <ul class="product-list order-info" ng-repeat="order in orders" ng-show="orders.code!=0" >
+            <li  class="working" ng-show="order.order_status<=2">
+              <div class="working-title">订单号:{{order.sn ? order.sn : order.id}}<span>{{order.createtime*1000 | date:'yyyy-MM-dd'}}</span></div>
+              <div class="working-content" ng-repeat="o in order.product" ns-show="order.product">
+                <img src="{{homeurl+o.image}}">
+                <p class="tit">{{o.title}}</p>
+                {{orders.id}}
+                <a class="working-look" href="#/product/{{o.id}}/{{order.id}}" ng-hide="order.order_status==2">查看详情>></a>
+                <a class="working-price">{{o.price |currency:"￥"}}</a>
+              </div>
+              <div class="working-content" ns-show="order.title">
+                <img src="{{homeurl+order.image}}">
+                <p class="tit">{{order.title}}</p>
+                {{orders.id}}
+                <p class="working-look">数量：{{order.num}}</p>
+                <a class="working-price">{{order.price |currency:"￥"}}</a>
+              </div>
+
+              <div style="font-size: 12px; text-align: right; padding-right: 2.5%">
+                姓名：{{order.realname}} <br/>
+                地址：{{order.address}} <br/>电话：{{order.mobile}}
+              </div>
+
+              <div class="working-foot">
+                <span>共计: <strong style="color:red">{{order.amount | currency:"￥"}}</strong></span>
+
+                <!-- update 2016-1-4-->
+                <a  style="display: inline-block; float: right" ng-show="order.order_status==2">等待用户确认中</a>
+                <a class="btn-green working-refuse" ng-hide="order.order_status==2" ng-click="refuse(order.id)">取消</a>
+                <a class="btn-green working-agree" ng-click="showConfirm(order.id)" ng-hide="order.order_status==2">提交</a>
+
+                <!-- end update-->
+
+              </div>
+            </li>
+          </ul>
+        </ion-content>
+      </ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="已完结" href="#/userorder/workingw/{{userID}}">
+      <ion-nav-view name="to-working"></ion-nav-view>
+    </ion-tab>
+
+  </ion-tabs>
+</ion-view>

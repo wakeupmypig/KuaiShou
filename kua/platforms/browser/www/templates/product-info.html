@@ -1,0 +1,32 @@
+<ion-view view-title="明细" cache-view=false>
+
+
+
+    <ion-content>
+        <div class="whether-main">
+            <div class="whether-header cf">
+                <img ng-src={{homeurl+list.path}}>
+
+                <div class="whether-info ">
+                    <div class="title">{{list.titleName}}
+                    </div>
+                    <p>回收价 : <span>{{list.total}}</span></p>
+                </div>
+            </div>
+            <div class="whether-box">
+                <div class="whether-box-title">
+                    当前商品信息
+                </div>
+                <ul class="whether-list cf">
+                    <li ng-repeat="item in list.data track by $index">
+                        {{item.title}}：{{item.t_name}}
+                    </li>
+                </ul>
+            </div>
+            <div class="whether-btn cf">
+                <a href="#/downOrder"  class="btn-green">直接下单</a>
+                <a href="" class="btn-green" ng-click="addCart()">加入回收车</a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,32 @@
+<ion-view view-title="登录" cache-view="false" hide-nav-bar="{{navbar}}" hide-tabs="true">
+  <ion-content class="account-con">
+    <div class="login">
+      <a class="logo"></a>
+      <ul class="main-input">
+        <li>
+          <span></span>
+
+          <div>
+            <input ng-model="username" type="text" placeholder="用户名/手机号" maxlength="11" ng-click="clear_msg()"/>
+          </div>
+        </li>
+        <li>
+          <span></span>
+
+          <div>
+            <input ng-model="password" type="password" placeholder="密码" ng-click="clear_msg()" />
+          </div>
+        </li>
+        <li ng-show='login_error'>
+          <div ng-model="error_msg">{{error_msg}}</div>
+        </li>
+      </ul>
+      <button class="order-checkconfirm" ng-click="login(username, password)">登录</button>
+
+      <div class="main_regist">
+        <!--<a class="forget" href="#/repassword">忘记账号？</a>-->
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

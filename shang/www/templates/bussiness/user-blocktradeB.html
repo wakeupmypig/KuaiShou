@@ -1,0 +1,22 @@
+<ion-view view-title="大宗订单" cache-view="false">
+  <ion-content class="usercenter">
+    <ul>
+
+      <li ng-repeat="item in tradeList track by $index" class="working" style="position: relative;padding-top: 0;">
+        <div class="working-title" style="font-size: 12px;color: #1a1a1a;line-height: 24.5px"><em style="margin-right: 3%;display:inline-block;width: 24px;height: 24px;vertical-align: middle;background: url('../../img/usercenter/icon.png') no-repeat;background-size:100%"></em>订单号:{{item.sn}}<span style="color: #666666;">{{item.create_time | mytime}}<!--{{order.createtime*1000 | date:'yyyy-MM-dd'}}--></span></div>
+        <div class="working-content" style="border: none;height: 80%;">
+          <ul class="whether-list cf" style="border: none;margin: 5px auto;padding: 0;">
+            <li>类型：{{item.product}}</li>
+            <li>品牌：{{item.brand}}</li>
+            <li>规格：{{item.guige}}</li>
+            <li>数量：{{item.num}}</li>
+            <li>电话：{{item.name}}</li>
+            <li>地址：{{item.address}}</li>
+          </ul>
+        </div>
+        <!--<a class="btn-green" style="width: 15%;height: 15px;position: absolute;bottom: 5px;left: 83%;font-size: 12px;line-height: 15px;" href="#">删除</a>-->
+      </li>
+
+    </ul>
+  </ion-content>
+</ion-view>

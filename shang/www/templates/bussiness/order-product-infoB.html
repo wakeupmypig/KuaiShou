@@ -1,0 +1,35 @@
+<ion-view view-title="详情页" cache-view=false>
+    <ion-content>
+        <div class="whether-main">
+            <div class="whether-header cf">
+
+                <img ng-src={{homeurl+list.product[0].image}}>
+                <div class="whether-info ">
+                    <div class="title">{{list.product[0].title}}
+                    </div>
+                    <p>回收价 : <span>{{list.product[0].price}}</span></p>
+                </div>
+            </div>
+            <div class="whether-box">
+                <div class="whether-box-title">
+                    当前商品信息
+                </div>
+                <ul class="whether-list cf">
+                    <li ng-repeat="item in list.product[0].data track by $index">
+                        {{item.ptitle}}：{{item.title}}
+                    </li>
+                </ul>
+            </div>
+          <div class="whether-box">
+            <ul class="whether-list cf">
+              <li>
+                地址：{{list.address}}
+              </li>
+              <li>
+                电话：{{list.mobile}}
+              </li>
+            </ul>
+          </div>
+        </div>
+    </ion-content>
+</ion-view>

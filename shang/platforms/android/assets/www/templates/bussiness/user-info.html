@@ -1,0 +1,32 @@
+<ion-view view-title="个人资料" cache-view=false>
+    <ion-content class="user-info">
+        <div class="user">
+            <div class="avtar">
+
+            </div>
+            <span class="user-name">{{username}}</span>
+            <ul class="  user-info">
+                <li><a href="#/userinfo/nicknameEditB">昵称：<span>{{nickname}}</span></a></li>
+                <!--<li><a href="">性别：<span>{{sex}}</span></a></li>-->
+              <label for="select" >
+
+                  <li style="line-height: 44.5px; " >
+
+                  <div style="display: inline-block;border:0">
+                    性别:
+                  </div>
+                  <select ng-model="sel" ng-change="changeSex(sel)" id="select" style="display: inline-block; float: right;line-height: 44.5px; background: none; -webkit-appearance: none;border: none; margin-right:9.375%; color: #C9C9C9; height: 44.5px">
+                    <option value="1">男</option>
+                    <option value="0">女</option>
+                  </select>
+
+
+                  </li>
+              </label>
+                <li  style="clear:both"> <a href="#/userinfo/mobileEditB">手机号：<span class="cf">{{mobile}}</span></a></li>
+            </ul>
+
+
+        </div>
+    </ion-content>
+</ion-view>

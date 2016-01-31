@@ -1,0 +1,16 @@
+<ion-view view-title="提现" cache-view="false">
+
+
+
+  <ion-content>
+    <ul class="user-info cash">
+      <li><label for="">可提金额：</label><span>{{mny}}元</span></li>
+      <li><label for="">提现金额：</label><input type="tel" placeholder="请输入提现金额" ng-model="cashMny" ng-change="changMny(cashMny)" style="display: inline-block"/></li>
+      <li></li>
+      <li><label for="">提现至支付宝账号：</label><em class="pay" ng-model="account"></em></li>
+      <li><input type="text" placeholder="请输入支付宝账户" ng-model="account"/></li>
+      <li style="color: red;" ng-show="show"><label for="">亲，你没那么多钱啊！</label></li>
+    </ul>
+    <a class="quite btn-green change-margintop" ng-click="cash(cashMny,account)">确定</a>
+  </ion-content>
+</ion-view>
